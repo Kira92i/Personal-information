@@ -14,9 +14,8 @@
         }
         header, footer {
             text-align: center;
-            padding: 15px; /* Increased padding for better spacing */
+            padding: 15px;
             background-color: #000;
-            color: #fff;
         }
         main {
             width: 80%;
@@ -28,38 +27,53 @@
         }
         .profile-img {
             display: block;
-            margin: 0 auto; /* Center the image */
-            width: 100px; /* Set width to 100px */
-            height: 100px; /* Set height to 100px */
-            border-radius: 50%; /* Make the image circular */
-            object-fit: cover; /* Maintain aspect ratio */
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; 
+            object-fit: cover;
         }
         .contact-info {
-            background-color: #333; /* Dark gray background for the contact info */
+            background-color: #333;
             border: 1px solid #444;
-            padding: 20px; /* Increased padding for better spacing */
-            border-radius: 8px; /* Slightly rounded corners */
-            margin-bottom: 30px; /* Increased margin for better spacing */
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
         }
         .contact-info h2 {
             margin-top: 0;
-            color: #f15a29; /* Ember color for the subheading */
+            color: #f15a29;
         }
         .contact-info p {
-            margin: 10px 0; /* Increased margin for better spacing */
+            margin: 10px 0;
+        }
+        .image-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-links img {
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 8px;
         }
         a {
-            color: #f15a29; /* Ember color for links */
+            color: #f15a29;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
         }
+        .image-links h3 {
+            color: #f15a29;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/Picsart_24-10-22_15-49-01-715.jpg" alt="Profile Image" class="profile-img"> <!-- Add your image URL here -->
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/Picsart_24-10-22_15-49-01-715.jpg" alt="Profile Image" class="profile-img">
         <h1>Billel Abdiche</h1>
     </header>
     <main>
@@ -83,10 +97,24 @@
             <p>Birthday: 1997</p>
             <p>Status: Single</p>
         </div>
+
+        <!-- Image Links Section -->
+        <div class="image-links">
+            <h3>My Apps</h3>
+            <a href="https://kira92i.github.io/Remember_Allah-/" target="_blank">
+                <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/1" alt="Blog">
+            </a>
+            <a href="https://kira92i.github.io/S.Clipboard/" target="_blank">
+                <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/2.png" alt="Islamic App">
+            </a>
+            <a href="https://youtube.com/@billelabdiche92" target="_blank">
+                <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/3.png" alt="YouTube">
+            </a>
+        </div>
+
         <div class="description">
             <h2>About Me</h2>
             <p><strong>English:</strong><br>I’m Kira, born in 1997, and I’m a passionate developer with a deep love for anime and Japanese culture. As an INTJ, I enjoy gaming and coding on Android, and I definitely prefer Android over iPhone. Currently, I’m working on an app for authentic Islamic supplications and creating interconnected HTML pages. I value honesty, loyalty, humility, and calmness, and I approach life with seriousness. I also have a sweet tooth and love indulging in sweet snacks. Always eager to grow, I’m learning Japanese and enhancing my coding skills.</p>
-            <p><strong>Japanese:</strong><br>私はキラ、1997年生まれ、アニメと日本文化が大好きな情熱的な開発者です。INTJタイプとして、Androidでゲームをしたりコーディングしたりするのが好きで、iPhoneよりもAndroidを好みます。現在、私は正しいイスラムの祈りに関するアプリを開発しており、相互にリンクされたHTMLページを作成しています。誠実さ、忠誠心、謙虚さ、冷静さを大切にしており、真剣に物事に取り組んでいます。また、甘いお菓子が大好きで、よく食べています。常に成長を目指して、日本語を学びながら、プログラミングスキルを向上させています。</p>
         </div>
     </main>
     <footer>
