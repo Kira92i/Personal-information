@@ -3,121 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kira's Personal Information</title>
+    <title>Kira's Profile</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* White background */
-            color: #000000; /* Black text */
-        }
-        header, footer {
+            background-color: #f4f4f9;
+            color: #333;
             text-align: center;
-            padding: 15px;
-            background-color: #ffffff;
         }
-        main {
-            width: 80%;
-            margin: 0 auto;
+        .container {
+            max-width: 800px;
+            margin: auto;
             padding: 20px;
+        }
+        img.profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #000080; /* Navy border */
+            margin-bottom: 10px;
         }
         h1 {
-            color: #000080; /* Amber color for the heading */
-        }
-        .profile-img {
-            display: block;
-            margin: 0 auto;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%; 
-            object-fit: cover;
-            border: 3px solid #000080; /* Amber border around the image */
-        }
-        .contact-info {
-            background-color: #f0f0f0;
-            border: 1px solid #dddddd;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        .contact-info h2 {
-            margin-top: 0;
-            color: #000080;
-        }
-        .contact-info p {
+            font-size: 24px;
+            color: #000080; /* Navy color for name */
             margin: 10px 0;
         }
-        .image-links {
-            text-align: center;
-            margin: 20px 0;
+        .bio {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
         }
-        .image-links img {
-            width: 50px;
-            height: 50px;
-            margin: 0 10px;
-            cursor: pointer;
+        .app-gallery, .my-apps-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .app-gallery a, .my-apps-gallery a {
+            margin: 10px;
+        }
+        .app-gallery img, .my-apps-gallery img {
+            width: 70px;
+            height: 70px;
             border-radius: 8px;
+            cursor: pointer;
         }
-        a {
-            color: #000080;
-            text-decoration: none;
+        .about {
+            margin-top: 20px;
+            line-height: 1.6;
         }
-        a:hover {
-            text-decoration: underline;
-        }
-        .image-links h3 {
-            color: #000080;
-            margin-bottom: 10px;
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #333;
+            color: #ffffff;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/Picsart_24-10-22_15-49-01-715.jpg" alt="Profile Image" class="profile-img">
-        <h1>Billel Abdiche</h1>
-    </header>
-    <main>
-        <div class="contact-info">
-            <h2>Contact Information</h2>
-            <p>Email: <a href="mailto:billelabdiche92@gmail.com">billelabdiche92@gmail.com</a></p>
-            <p>Phone: <a href="tel:0552790181">0552790181</a></p>
-            <p>Facebook: <a href="https://www.facebook.com/kira92ii" target="_blank">Click Here</a></p>
-            <p>Instagram: <a href="https://www.instagram.com/kira92ii" target="_blank">Click Here</a></p>
-            <p>TikTok: <a href="https://www.tiktok.com/@kira92iii?_t=8pfZ1lLHc7J&_r=1" target="_blank">Click Here</a></p>
-            <p>Telegram: <a href="https://t.me/kira_desu92i" target="_blank">Click Here</a></p>
-            <p>Pinterest: <a href="https://pin.it/55RlemwPo" target="_blank">Click Here</a></p>
-            <p>Spotify: <a href="https://spotify.link/31l7flr44ytfx4w4bhoeb7ytf3wm" target="_blank">Click Here</a></p>
-            <p>Discord: <a href="https://discord.gg/N5H3KEBc4f" target="_blank">Click Here</a></p>
-            <p>WhatsApp: <a href="https://wa.me/qr/SWRUOYDR2XA6J1" target="_blank">Click Here</a></p>
-            <p>YouTube: <a href="https://youtube.com/@billelabdiche92" target="_blank">Click Here</a></p>
-            <p>X: <a href="https://x.com/billelabdiche92?t=9ptWj9xDkUytg8m9jgo-0w&s=09" target="_blank">Click Here</a></p>
-            <p>Location: Khemis El Khechna, Boumerdes, Algeria</p>
-            <p>Birthday: 1997</p>
-            <p>Status: Single</p>
-        </div>
 
-        <!-- Image Links Section -->
-        <div class="image-links">
-            <h3>My Apps</h3>
-            <a href="https://kira92i.github.io/Remember_Allah-/" target="_blank">
-                <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/1.png" alt="Remember Allah">
-            </a>
-            <a href="https://kira92i.github.io/S.Clipboard/" target="_blank">
-                <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/2.png" alt="S.Clipboard">
-            </a>
-            <a href="https://kira92i.github.io/TrustWave-app/" target="_blank">
-                <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/3.png" alt="TrustWave">
-            </a>
-        </div>
+<div class="container">
+    <!-- Profile Picture -->
+    <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/Picsart_24-10-22_15-49-01-715.jpg" alt="Profile Image" class="profile-img">
 
-        <div class="description">
-            <h2>About Me</h2>
-            <p>I’m Kira, born in 1997, and I’m a passionate developer with a deep love for anime and Japanese culture. As an INTJ, I enjoy gaming and coding on Android . Currently, I’m working on an app for authentic Islamic supplications and creating HTML pages. I value honesty, loyalty, humility, and calmness, and I approach life with seriousness. I’m learning Japanese and enhancing my coding skills for better improvement.</p>
-        </div>
-    </main>
-    <footer>
-        &copy; 2024 Made with ❤️ by Me
-    </footer>
+    <!-- Full Name -->
+    <h1>Billel Abdiche</h1>
+
+    <!-- Short Bio -->
+    <p class="bio">Android Developer / Web Developer</p>
+
+    <!-- App Icons -->
+    <div class="app-gallery">
+        <a href="https://www.facebook.com/kira92ii" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/kira92ii" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@kira92iii?_t=8pfZ1lLHc7J&_r=1" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/tiktok.png" alt="TikTok">
+        </a>
+        <a href="https://t.me/kira_desu92i" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/telegram.png" alt="Telegram">
+        </a>
+        <a href="https://pin.it/55RlemwPo" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/pinterest.png" alt="Pinterest">
+        </a>
+        <a href="https://spotify.link/31l7flr44ytfx4w4bhoeb7ytf3wm" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/spotify.png" alt="Spotify">
+        </a>
+        <a href="https://discord.gg/N5H3KEBc4f" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/discord.png" alt="Discord">
+        </a>
+        <a href="https://wa.me/qr/SWRUOYDR2XA6J1" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/whatsapp.png" alt="WhatsApp">
+        </a>
+        <a href="https://youtube.com/@billelabdiche92" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://x.com/billelabdiche92?t=9ptWj9xDkUytg8m9jgo-0w&s=09" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/x.png" alt="X (Twitter)">
+        </a>
+        <a href="https://ab92i.blogspot.com/" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/blogger.png" alt="Blogger">
+        </a>
+        <a href="https://kira92i.github.io/Personal-information/" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/github.png" alt="GitHub">
+        </a>
+    </div>
+
+    <!-- My Apps Title -->
+    <h2>My Apps</h2>
+
+    <!-- My Apps Icons -->
+    <div class="my-apps-gallery">
+        <a href="https://kira92i.github.io/Remember_Allah-/" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/1.png" alt="Remember Allah">
+        </a>
+        <a href="https://kira92i.github.io/S.Clipboard/" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/2.png" alt="S.Clipboard">
+        </a>
+        <a href="https://kira92i.github.io/TrustWave-app/" target="_blank">
+            <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/3.png" alt="TrustWave">
+        </a>
+    </div>
+
+    <!-- About Me Title -->
+    <h2>About Me</h2>
+
+    <!-- About Me Description -->
+    <p class="about">I’m Kira, born on May 13, 1997, a passionate developer with a love for anime and Japanese culture. I enjoy gaming and coding on Android. Currently, I’m working on an app for authentic Islamic supplications. I value honesty, loyalty, humility, and calmness. I’m learning Japanese and enhancing my coding skills.</p>
+</div>
+
+<!-- Footer -->
+<footer>
+    &copy; 2024 Made with ❤️ by Kira
+</footer>
+
 </body>
 </html>
