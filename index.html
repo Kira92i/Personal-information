@@ -1,245 +1,234 @@
-<!DOCTYPE html><html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kira's Profile</title>
-    <style>
-      :root {
-        --bg-dark: #121212;
-        --bg-light: #f9f9f9;
-        --text-dark: #ffffff;
-        --text-light: #111111;
-        --accent: #ff5722;
-      }body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-dark);
-    transition: background 0.3s, color 0.3s;
-    text-align: center;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kira's Profile</title>
 
-  body.light-mode {
-    background-color: var(--bg-light);
-    color: var(--text-light);
-  }
+  <style>
+    /* ======== Root Variables ======== */
+    :root {
+      --bg-dark: #121212;
+      --bg-light: #f9f9f9;
+      --text-dark: #ffffff;
+      --text-light: #111111;
+      --accent: #ff5722;
+    }
 
-  .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 30px 20px;
-  }
+    /* ======== Base Styles ======== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+      transition: background 0.3s, color 0.3s;
+      text-align: center;
+    }
 
-  img.profile-img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 4px solid var(--accent);
-    margin-bottom: 10px;
-    box-shadow: 0 0 12px rgba(255, 87, 34, 0.5);
-  }
+    body.light-mode {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
 
-  h1 {
-    font-size: 28px;
-    color: var(--accent);
-  }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px 20px;
+    }
 
-  .bio {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
+    /* ======== Profile Image ======== */
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      margin-bottom: 10px;
+      box-shadow: 0 0 12px rgba(255, 87, 34, 0.5);
+    }
 
-  .contact-info {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 18px;
-    border-radius: 12px;
-    margin-top: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  }
+    /* ======== Text Elements ======== */
+    h1 {
+      font-size: 28px;
+      color: var(--accent);
+    }
 
-  .contact-info p {
-    font-size: 15px;
-    margin: 8px 0;
-  }
+    .bio {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
 
-  .contact-info a {
-    color: var(--accent);
-    text-decoration: none;
-  }
+    h2 {
+      font-size: 22px;
+      color: #ff8c00;
+      margin-top: 40px;
+    }
 
-  .app-gallery,
-  .my-apps-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
-  }
+    .about {
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
 
-  .app-gallery img,
-  .my-apps-gallery img {
-    width: 56px;
-    height: 56px;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-  }
+    /* ======== Contact Info ======== */
+    .contact-info {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
 
-  .app-gallery img:hover,
-  .my-apps-gallery img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px var(--accent);
-  }
+    .contact-info p {
+      font-size: 15px;
+      margin: 8px 0;
+    }
 
-  h2 {
-    font-size: 22px;
-    color: #ff8c00;
-    margin-top: 40px;
-  }
+    .contact-info a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-  .about {
-    font-size: 16px;
-    line-height: 1.7;
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-  }
+    /* ======== Galleries ======== */
+    .app-gallery,
+    .my-apps-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
 
-  footer {
-    margin-top: 40px;
-    background: #111;
-    color: #bbb;
-    padding: 15px;
-    font-size: 14px;
-  }
+    .app-gallery img,
+    .my-apps-gallery img {
+      width: 56px;
+      height: 56px;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
 
-  .toggle-mode {
-    margin-top: 20px;
-    padding: 8px 15px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    transition: background 0.3s;
-  }
+    .app-gallery img:hover,
+    .my-apps-gallery img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px var(--accent);
+    }
 
-  .toggle-mode:hover {
-    background-color: #e64a19;
-  }
-</style>
+    /* ======== Footer ======== */
+    footer {
+      margin-top: 40px;
+      background: #111;
+      color: #bbb;
+      padding: 15px;
+      font-size: 14px;
+    }
 
-  </head>
-  <body>
-    <div class="container">
-      <img
-        src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/Picsart_25-04-03_17-12-58-703.jpg"
-        alt="Profile Image"
-        class="profile-img"
-      />
-      <h1>KIRA - キラ</h1>
-      <p class="bio">
-        Personal webpage design, Game top-ups, AliExpress shopping, VISA card
-        request, US Google account request.
-      </p><div class="contact-info">
-    <p>
-      Gmail:
-      <a href="mailto:billelabdiche92@gmail.com">bi*************@gmail.com</a>
+    /* ======== Toggle Button ======== */
+    .toggle-mode {
+      margin-top: 20px;
+      padding: 8px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .toggle-mode:hover {
+      background-color: #e64a19;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ======== Main Container ======== -->
+  <div class="container">
+    <img 
+      src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/Picsart_25-04-03_17-12-58-703.jpg" 
+      alt="Profile Image" 
+      class="profile-img" 
+    />
+    <h1>KIRA - キラ</h1>
+    <p class="bio">
+      Personal webpage design, Game top-ups, AliExpress shopping, VISA card request, US Google account request.
     </p>
-    <p>Number: <a href="tel:+213552790181">0552 79 01 81</a></p>
+
+    <div class="contact-info">
+      <p>Email: 
+        <a href="mailto:billelabdiche92@gmail.com">bi*************@gmail.com</a>
+      </p>
+      <p>Phone: 
+        <a href="tel:+213552790181">0552 79 01 81</a>
+      </p>
+    </div>
+
+    <button class="toggle-mode" onclick="toggleMode()">
+      Toggle Light/Dark Mode
+    </button>
   </div>
 
-  <button class="toggle-mode" onclick="toggleMode()">
-    Toggle Light/Dark Mode
-  </button>
-</div>
+  <!-- ======== Social Media ======== -->
+  <div>
+    <h2>Follow Me</h2>
+    <div class="app-gallery">
+      <a href="https://www.facebook.com/kira92ii" target="_blank">
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/facebook.png" alt="Facebook" onclick="playClick()" />
+      </a>
+      <a href="https://www.instagram.com/kira92ii" target="_blank">
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/instagram.png" alt="Instagram" onclick="playClick()" />
+      </a>
+      <a href="https://www.tiktok.com/@kira92iii?_t=8pfZ1lLHc7J&_r=1" target="_blank">
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/tiktok.png" alt="TikTok" onclick="playClick()" />
+      </a>
+      <a href="https://t.me/kira_desu92i" target="_blank">
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/telegram.png" alt="Telegram" onclick="playClick()" />
+      </a>
+      <a href="https://discord.gg/dA4vVYK6ZH" target="_blank">
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/discord.png" alt="Discord" onclick="playClick()" />
+      </a>
+      <a href="https://wa.me/qr/SWRUOYDR2XA6J1" target="_blank">
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/whatsapp.png" alt="WhatsApp" onclick="playClick()" />
+      </a>
+    </div>
 
-<div>
-  <h2>Follow Me</h2>
-  <div class="app-gallery">
-    <a href="https://www.facebook.com/kira92ii" target="_blank"
-      ><img
-        src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/facebook.png"
-        alt="Facebook"
-        onclick="playClick()"
-    /></a>
-    <a href="https://www.instagram.com/kira92ii" target="_blank"
-      ><img
-        src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/instagram.png"
-        alt="Instagram"
-        onclick="playClick()"
-    /></a>
-    <a
-      href="https://www.tiktok.com/@kira92iii?_t=8pfZ1lLHc7J&_r=1"
-      target="_blank"
-      ><img
-        src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/tiktok.png"
-        alt="TikTok"
-        onclick="playClick()"
-    /></a>
-    <a href="https://t.me/kira_desu92i" target="_blank"
-      ><img
-        src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/telegram.png"
-        alt="Telegram"
-        onclick="playClick()"
-    /></a>
-    <a href="https://discord.gg/dA4vVYK6ZH" target="_blank"
-      ><img
-        src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/discord.png"
-        alt="Discord"
-        onclick="playClick()"
-    /></a>
-    <a href="https://wa.me/qr/SWRUOYDR2XA6J1" target="_blank"
-      ><img
-        src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/whatsapp.png"
-        alt="WhatsApp"
-        onclick="playClick()"
-    /></a>
+    <!-- ======== My Apps ======== -->
+    <h2>My Apps</h2>
+    <div class="my-apps-gallery">
+      <a href="https://kira92i.github.io/Remember_Allah-/" target="_blank">
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/1.png" alt="Remember Allah" onclick="playClick()" />
+      </a>
+      <a href="https://kira92i.github.io/S.Clipboard/" target="_blank">
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/2.png" alt="S.Clipboard" onclick="playClick()" />
+      </a>
+    </div>
+
+    <!-- ======== About Section ======== -->
+    <h2>About Me</h2>
+    <p class="about">
+      I’m Billel, born on May 13, 1997, a passionate developer with a love for anime and Japanese culture.<br />
+      I enjoy gaming and coding on Android. I value honesty, loyalty and calmness.<br />
+      Nice to meet you ...
+    </p>
   </div>
 
-  <h2>My Apps</h2>
-  <div class="my-apps-gallery">
-    <a href="https://kira92i.github.io/Remember_Allah-/" target="_blank"
-      ><img
-        src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/1.png"
-        alt="Remember Allah"
-        onclick="playClick()"
-    /></a>
-    <a href="https://kira92i.github.io/S.Clipboard/" target="_blank"
-      ><img
-        src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/2.png"
-        alt="S.Clipboard"
-        onclick="playClick()"
-    /></a>
-  </div>
+  <!-- ======== Footer ======== -->
+  <footer>&copy; 2024 Made with ❤️ by Kira</footer>
 
-  <h2>About Me</h2>
-  <p class="about">
-    I’m Billel, born on May 13, 1997, a passionate developer with a love for
-    anime and Japanese culture.<br />
-    I enjoy gaming and coding on Android. I value honesty, loyalty and
-    calmness.<br />
-    Nice to meet you ...
-  </p>
-</div>
+  <!-- ======== Scripts ======== -->
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
+    }
 
-<footer>&copy; 2024 Made with ❤️ by Kira</footer>
-
-<script>
-  function toggleMode() {
-    document.body.classList.toggle('light-mode');
-  }
-
-  function playClick() {
-    const audio = new Audio(
-      'https://cdn.pixabay.com/download/audio/2023/03/01/audio_81ef47c3b5.mp3?filename=click-124467.mp3'
-    );
-    audio.volume = 0.2;
-    audio.play();
-  }
-</script>
-
-  </body>
+    function playClick() {
+      const audio = new Audio('https://cdn.pixabay.com/download/audio/2023/03/01/audio_81ef47c3b5.mp3?filename=click-124467.mp3');
+      audio.volume = 0.2;
+      audio.play();
+    }
+  </script>
+</body>
 </html>
