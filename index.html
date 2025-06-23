@@ -9,9 +9,7 @@
     /* ======== Root Variables ======== */
     :root {
       --bg-dark: #121212;
-      --bg-light: #f9f9f9;
       --text-dark: #ffffff;
-      --text-light: #111111;
       --accent: #ff5722;
     }
 
@@ -22,13 +20,7 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg-dark);
       color: var(--text-dark);
-      transition: background 0.3s, color 0.3s;
       text-align: center;
-    }
-
-    body.light-mode {
-      background-color: var(--bg-light);
-      color: var(--text-light);
     }
 
     .container {
@@ -42,7 +34,6 @@
       width: 140px;
       height: 140px;
       border-radius: 50%;
-      border: 4px solid var(--accent);
       margin-bottom: 10px;
       box-shadow: 0 0 12px rgba(255, 87, 34, 0.5);
     }
@@ -106,7 +97,7 @@
       width: 56px;
       height: 56px;
       border-radius: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.1s, box-shadow 0.1s;
       cursor: pointer;
     }
 
@@ -125,21 +116,22 @@
       font-size: 14px;
     }
 
-    /* ======== Toggle Button ======== */
-    .toggle-mode {
-      margin-top: 20px;
-      padding: 8px 15px;
-      font-size: 14px;
-      cursor: pointer;
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      transition: background 0.3s;
+    /* ======== RGB Animation ======== */
+    @keyframes rgbBorder {
+      0%   { border-color: red; }
+      33%  { border-color: lime; }
+      66%  { border-color: blue; }
+      100% { border-color: red; }
     }
 
-    .toggle-mode:hover {
-      background-color: #e64a19;
+    .rgb-ring {
+      border: 4px solid red;
+      animation: rgbBorder 5s linear infinite;
+    }
+
+    .rgb-border {
+      border: 4px solid red;
+      animation: rgbBorder 5s linear infinite;
     }
   </style>
 </head>
@@ -150,14 +142,14 @@
     <img 
       src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/Picsart_25-04-03_17-12-58-703.jpg" 
       alt="Profile Image" 
-      class="profile-img" 
+      class="profile-img rgb-ring" 
     />
     <h1>KIRA - キラ</h1>
     <p class="bio">
       Personal webpage design, Game top-ups, AliExpress shopping, VISA card request, US Google account request.
     </p>
 
-    <div class="contact-info">
+    <div class="contact-info rgb-border">
       <p>Email: 
         <a href="mailto:billelabdiche92@gmail.com">bi*************@gmail.com</a>
       </p>
@@ -165,10 +157,6 @@
         <a href="tel:+213552790181">0552 79 01 81</a>
       </p>
     </div>
-
-    <button class="toggle-mode" onclick="toggleMode()">
-      Toggle Light/Dark Mode
-    </button>
   </div>
 
   <!-- ======== Social Media ======== -->
@@ -176,22 +164,22 @@
     <h2>Follow Me</h2>
     <div class="app-gallery">
       <a href="https://www.facebook.com/kira92ii" target="_blank">
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/facebook.png" alt="Facebook" onclick="playClick()" />
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/facebook.png" alt="Facebook" />
       </a>
       <a href="https://www.instagram.com/kira92ii" target="_blank">
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/instagram.png" alt="Instagram" onclick="playClick()" />
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/instagram.png" alt="Instagram" />
       </a>
       <a href="https://www.tiktok.com/@kira92iii?_t=8pfZ1lLHc7J&_r=1" target="_blank">
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/tiktok.png" alt="TikTok" onclick="playClick()" />
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/tiktok.png" alt="TikTok" />
       </a>
       <a href="https://t.me/kira_desu92i" target="_blank">
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/telegram.png" alt="Telegram" onclick="playClick()" />
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/telegram.png" alt="Telegram" />
       </a>
       <a href="https://discord.gg/dA4vVYK6ZH" target="_blank">
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/discord.png" alt="Discord" onclick="playClick()" />
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/discord.png" alt="Discord" />
       </a>
       <a href="https://wa.me/qr/SWRUOYDR2XA6J1" target="_blank">
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/whatsapp.png" alt="WhatsApp" onclick="playClick()" />
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/whatsapp.png" alt="WhatsApp" />
       </a>
     </div>
 
@@ -199,10 +187,10 @@
     <h2>My Apps</h2>
     <div class="my-apps-gallery">
       <a href="https://kira92i.github.io/Remember_Allah-/" target="_blank">
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/1.png" alt="Remember Allah" onclick="playClick()" />
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/1.png" alt="Remember Allah" />
       </a>
       <a href="https://kira92i.github.io/S.Clipboard/" target="_blank">
-        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/2.png" alt="S.Clipboard" onclick="playClick()" />
+        <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/2.png" alt="S.Clipboard" />
       </a>
     </div>
 
@@ -217,18 +205,5 @@
 
   <!-- ======== Footer ======== -->
   <footer>&copy; 2024 Made with ❤️ by Kira</footer>
-
-  <!-- ======== Scripts ======== -->
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle('light-mode');
-    }
-
-    function playClick() {
-      const audio = new Audio('https://cdn.pixabay.com/download/audio/2023/03/01/audio_81ef47c3b5.mp3?filename=click-124467.mp3');
-      audio.volume = 0.2;
-      audio.play();
-    }
-  </script>
 </body>
 </html>
