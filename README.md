@@ -1,34 +1,25 @@
-# 🌐 Kira's Profile Page
+# Kira's Personal Web Profile
 
-A simple and responsive personal webpage showcasing my bio, contact info, social links, and personal apps — all in a clean dark/light mode design.
+A minimal, dark-themed personal webpage for showcasing profile info, contact details, social links, and personal apps. Features smooth RGB animations for visual appeal.
 
 ## ✨ Features
+- Dark mode (default)
+- Animated RGB text and borders
+- Responsive layout for all devices
+- Social media and app icon gallery
+- Clean and modern UI
 
-- Dark/Light mode toggle  
-- Profile image & bio  
-- Contact info (email, phone)  
-- Social media links with click sound  
-- My personal app gallery  
-- Mobile-friendly design
+## 🛠️ Built With
+- HTML5
+- CSS3 (no external libraries)
 
-## 🔗 Live Preview
+## 📂 Sections
+- **Profile Header**: Image, name, and short bio
+- **Contact Info**: Email and phone
+- **Social Links**: Facebook, Instagram, Telegram, etc.
+- **My Apps**: Links to personal projects
+- **About Me**: Brief introduction
+- **Footer**: Signature message
 
-[View on GitHub Pages](https://kira92i.github.io/Personal-information/)
-
-## ⚙️ How to Use
-
-1. Clone this repo:
-   ```bash
-   git clone https://github.com/Kira92i/Personal-information.git
-   ```
-2. Open `index.html` in your browser.
-
-## 📬 Contact Me
-
-- 📧 billelabdiche92@gmail.com  
-- 📱 +213 552 79 01 81
-
-## 📲 My Apps
-
-- [Remember Allah](https://kira92i.github.io/Remember_Allah-/)  
-- [S.Clipboard](https://kira92i.github.io/S.Clipboard/)
+## 🔗 Live Demo
+[View Webpage](https://kira92i.github.io/Personal-information/)
