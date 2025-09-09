@@ -26,24 +26,46 @@
     .container {
       max-width: 800px;
       margin: auto;
-      padding: 30px 20px;
+      padding: 20px;
     }
 
-    /* ========== Profile Image ========== */
-    .profile-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-      box-shadow: 0 0 12px rgba(255, 87, 34, 0.5);
-      border: 4px solid red;
+    /* ====== Profile Header with Cover ====== */
+    .profile-header {
+      position: relative;
+      text-align: center;
+      margin-bottom: 20px; /* tighter spacing */
+    }
+
+    .cover {
+      width: 100%;
+      height: 180px; /* slightly shorter */
+      background-image: url("https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/Picsart_25-07-11_15-28-43-587.jpg"); /* replace with your cover */
+      background-size: cover;
+      background-position: center;
+      border-bottom: 4px solid red;
       animation: rgbBorder 5s linear infinite;
+    }
+
+    .profile-header .profile-img {
+      position: absolute;
+      top: 120px; /* lifted higher */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid red;
+      box-shadow: 0 0 12px rgba(255, 87, 34, 0.5);
+      animation: rgbBorder 5s linear infinite;
+      background: #121212;
     }
 
     /* ========== Text Headings ========== */
     h1 {
-      font-size: 28px;
+      font-size: 26px;
       color: var(--accent);
+      margin-top: 90px; /* name closer to avatar */
+      margin-bottom: 8px;
     }
 
     h2 {
@@ -53,7 +75,7 @@
 
     .bio {
       font-size: 16px;
-      margin-bottom: 20px;
+      margin: 5px 0 15px;
     }
 
     .about {
@@ -62,7 +84,7 @@
       padding: 20px;
     }
 
-    /* ========== RGB Text Animation (For Titles) ========== */
+    /* ========== RGB Text Animation ========== */
     .rgb-text {
       background: linear-gradient(
         90deg,
@@ -92,18 +114,18 @@
 
     /* ========== Contact Info ========== */
     .contact-info {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 18px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 15px;
       border-radius: 12px;
-      margin-top: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-      border: 4px solid red;
+      margin-top: 10px; /* reduced gap */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      border: 3px solid red; /* unified border color */
       animation: rgbBorder 5s linear infinite;
     }
 
     .contact-info p {
       font-size: 15px;
-      margin: 8px 0;
+      margin: 6px 0;
     }
 
     .contact-info a {
@@ -111,7 +133,7 @@
       text-decoration: none;
     }
 
-    /* ========== Icon Galleries (Social + Apps) ========== */
+    /* ========== Galleries ========== */
     .app-gallery,
     .my-apps-gallery {
       display: flex;
@@ -138,14 +160,14 @@
 
     /* ========== Footer ========== */
     footer {
-      margin-top: 40px;
+      margin-top: 30px;
       background: #111;
       color: #bbb;
-      padding: 15px;
+      padding: 12px;
       font-size: 14px;
     }
 
-    /* ========== RGB Border Animation (Used for image & box borders) ========== */
+    /* ========== RGB Border Animation ========== */
     @keyframes rgbBorder {
       0%   { border-color: red; }
       33%  { border-color: lime; }
@@ -157,20 +179,20 @@
 
 <body>
 
-  <!-- ========== MAIN PROFILE SECTION ========== -->
-  <div class="container">
+  <!-- ========== PROFILE SECTION ========== -->
+  <div class="profile-header">
+    <div class="cover"></div>
     <img 
       src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/Picsart_25-09-08_23-56-39-245.png" 
       alt="Profile Image" 
       class="profile-img" 
     />
-
     <h1>KIRA</h1>
+    <p class="bio">🎯 All-in-One Digital Services 🎯</p>
+  </div>
 
-    <p class="bio">
-      🎯 All-in-One Digital Services 🎯
-    </p>
-
+  <!-- ========== CONTACT SECTION ========== -->
+  <div class="container">
     <div class="contact-info">
       <p>Email: 
         <a href="mailto:billelabdiche92@gmail.com">billel*******@gmail.com</a>
@@ -181,7 +203,7 @@
     </div>
   </div>
 
-  <!-- ========== SOCIAL LINKS SECTION ========== -->
+  <!-- ========== SOCIAL LINKS ========== -->
   <h2><span class="rgb-text">Follow Me</span></h2>
   <div class="app-gallery">
     <a href="https://www.facebook.com/kira92ii" target="_blank">
@@ -204,7 +226,7 @@
     </a>
   </div>
 
-  <!-- ========== MY APPS SECTION ========== -->
+  <!-- ========== MY APPS ========== -->
   <h2><span class="rgb-text">My Apps</span></h2>
   <div class="my-apps-gallery">
     <a href="https://kira92i.github.io/Remember_Allah-/" target="_blank">
