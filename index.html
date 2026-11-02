@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>ملف Kira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet" />
+
+<style>
+/* ============ 1. VARIABLES (عدّل الألوان والخطوط والمسافات من هنا) ============ */
+:root{
+  --c-bg:#000; --c-surface:#0e0e11; --c-surface-2:#17171c;
+  --c-yellow:#ffe600; --c-white:#f4f4f6; --c-blue:#2f8bff; --c-muted:#9b9ba8;
+  --font-main:'Cairo','Segoe UI',Tahoma,sans-serif;
+  --fs-body:1rem; --fs-title:clamp(2rem,7vw,3.4rem); --fs-hero:clamp(3.4rem,17vw,8rem);
+  --space-1:8px; --space-2:16px; --space-3:28px; --space-4:56px;
+  --cut:18px; --max-w:960px; --speed:.6s;
+}
+
+/* ============ 2. BASE ============ */
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--c-bg);color:var(--c-white);font-family:var(--font-main);font-size:var(--fs-body);line-height:1.7;overflow-x:clip;min-height:100vh}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--space-2);position:relative;z-index:2}
+section{padding-block:var(--space-3)}
+
+/* ============ 3. BACKGROUND (شبكة متحركة + جسيمات) ============ */
+.bg-grid{position:fixed;inset:0;z-index:0;opacity:.5;
+  background:
+   repeating-linear-gradient(-45deg,transparent 0 22px,rgba(255,230,0,.05) 22px 23px),
+   radial-gradient(circle at 80% 10%,rgba(47,139,255,.18),transparent 45%),
+   radial-gradient(circle at 10% 90%,rgba(255,230,0,.10),transparent 40%);
+  background-size:64px 64px,auto,auto;animation:gridMove 12s linear infinite}
+@keyframes gridMove{to{background-position:64px 64px,0 0,0 0}}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.scan{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:.07;
+  background:repeating-linear-gradient(0deg,#fff 0 1px,transparent 1px 3px)}
+
+/* ============ 4. HERO ============ */
+.hero{text-align:center;padding-top:var(--space-4);position:relative}
+.avatar{width:150px;height:150px;margin:0 auto var(--space-2);position:relative}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--c-surface);border:4px solid var(--c-yellow);position:relative;z-index:2}
+.avatar::before,.avatar::after{content:"";position:absolute;inset:-12px;border-radius:50%;border:2px dashed var(--c-blue);animation:spin 14s linear infinite}
+.avatar::after{inset:-22px;border:2px solid transparent;border-top-color:var(--c-yellow);border-bottom-color:var(--c-white);animation-duration:6s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.name{font-size:var(--fs-hero);font-weight:900;font-style:italic;line-height:1;letter-spacing:.04em;direction:ltr;position:relative;display:inline-block;color:var(--c-white);transform:skewX(-8deg)}
+.name::before,.name::after{content:attr(data-t);position:absolute;inset:0;mix-blend-mode:screen}
+.name::before{color:var(--c-blue);animation:glitch 3.2s infinite steps(1)}
+.name::after{color:var(--c-yellow);animation:glitch 3.2s infinite steps(1) reverse}
+@keyframes glitch{0%,90%,100%{transform:translate(0)}92%{transform:translate(-4px,2px)}95%{transform:translate(4px,-2px)}}
+.bio{display:inline-block;margin-top:var(--space-2);padding:4px 22px;background:var(--c-yellow);color:#000;font-weight:900;
+  clip-path:polygon(var(--cut) 0,100% 0,calc(100% - var(--cut)) 100%,0 100%)}
+
+/* ============ 5. BANNERS (لافتات متحركة) ============ */
+.hazard{height:14px;margin-block:var(--space-3);background:repeating-linear-gradient(-45deg,var(--c-yellow) 0 14px,#000 14px 28px);background-size:40px 40px;animation:slide 1.2s linear infinite}
+@keyframes slide{to{background-position:40px 0}}
+.marquee{overflow:hidden;background:var(--c-yellow);color:#000;transform:rotate(-1.5deg);direction:ltr;font-weight:900}
+.marquee .track{display:flex;width:max-content;animation:marq 26s linear infinite}
+.marquee span{padding:6px 26px;white-space:nowrap;display:flex;align-items:center;gap:26px;direction:rtl}
+.marquee span::after{content:"";width:12px;height:12px;background:#000;transform:rotate(45deg)}
+.marquee.alt{background:var(--c-blue);color:#fff;transform:rotate(1deg)}
+.marquee.alt .track{animation-direction:reverse}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ============ 6. SECTION TITLES ============ */
+.title{display:flex;align-items:baseline;gap:var(--space-2);margin-bottom:var(--space-3)}
+.title b{font-size:var(--fs-title);font-weight:900;font-style:italic;color:transparent;-webkit-text-stroke:2px var(--c-yellow);direction:ltr}
+.title h2{font-size:var(--fs-title);font-weight:900;transform:skewX(-8deg);position:relative}
+.title h2::after{content:"";position:absolute;inset-inline:0;bottom:2px;height:8px;background:var(--c-blue);z-index:-1;opacity:.8}
+
+/* ============ 7. CARDS ============ */
+.grid{display:grid;gap:var(--space-2);grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.tilt{perspective:800px}
+.card{background:linear-gradient(145deg,var(--c-surface-2),var(--c-surface));padding:var(--space-3) var(--space-2);position:relative;text-align:center;
+  border-inline-start:6px solid var(--c-yellow);
+  clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)));
+  transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out,background .3s}
+.card:hover{background:linear-gradient(145deg,#1f1f26,#101014)}
+.card h3{font-weight:900;font-size:1.15rem;margin-top:var(--space-1)}
+.card small{color:var(--c-muted);display:block}
+.card.blue{border-inline-start-color:var(--c-blue)}
+.num{position:absolute;top:6px;inset-inline-end:14px;font-weight:900;font-size:2rem;font-style:italic;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35);direction:ltr}
+
+/* ============ 8. CONTACT / LINKS ============ */
+.contact a.tilt{display:block;cursor:pointer}
+.contact .card{display:flex;flex-direction:column;align-items:center;gap:6px;padding-block:var(--space-3)}
+.contact .val{font-weight:900;font-size:1.2rem;color:var(--c-yellow);direction:ltr;unicode-bidi:plaintext;word-break:break-all}
+.contact svg{width:38px;height:38px;color:var(--c-blue)}
+.soc{display:flex;flex-wrap:wrap;gap:var(--space-2);justify-content:center}
+.soc a{width:72px;height:72px;display:grid;place-items:center;background:var(--c-surface-2);color:var(--c-white);
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));transition:.25s}
+.soc a:hover{background:var(--c-yellow);color:#000;transform:translateY(-5px) skewX(-6deg)}
+.soc svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.app{display:flex;align-items:center;gap:var(--space-2);text-align:start;padding:var(--space-2)}
+.app img{width:72px;height:72px;border-radius:16px;border:2px solid var(--c-blue)}
+.app h3{margin:0}
+.app small{color:var(--c-yellow)}
+
+/* ============ 9. FOOTER ============ */
+footer{margin-top:var(--space-3);padding:var(--space-3) var(--space-2);text-align:center;color:var(--c-muted);border-top:2px solid var(--c-yellow);position:relative;z-index:2;background:rgba(0,0,0,.85)}
+footer .k{direction:ltr;display:inline-block;color:var(--c-yellow);font-weight:900}
+
+/* ============ 10. REVEAL + REDUCED MOTION ============ */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity var(--speed),transform var(--speed)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .rv{opacity:1;transform:none}
+  #fx{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ BACKGROUND LAYERS ============ -->
+<div class="bg-grid"></div>
+<canvas id="fx"></canvas>
+<div class="scan"></div>
+
+<!-- ============ HERO ============ -->
+<header class="hero wrap">
+  <div class="avatar rv">
+    <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/IMG_20260209_204544.png" alt="الصورة الشخصية" />
+  </div>
+  <h1 class="name rv" data-t="KIRA">KIRA</h1><br />
+  <p class="bio rv">خدمات رقمية متكاملة</p>
+</header>
+
+<!-- ============ MARQUEE BANNER ============ -->
+<div class="hazard"></div>
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>تصميم صفحات شخصية</span><span>شحن الألعاب وبطاقات الهدايا</span><span>التسوق من AliExpress</span><span>طلبات VISA والبطاقات الافتراضية</span><span>حساب Google أمريكي</span>
+  <span>تصميم صفحات شخصية</span><span>شحن الألعاب وبطاقات الهدايا</span><span>التسوق من AliExpress</span><span>طلبات VISA والبطاقات الافتراضية</span><span>حساب Google أمريكي</span>
+</div></div>
+
+<main class="wrap">
+
+<div class="marquee alt" aria-hidden="true"><div class="track">
+  <span>KIRA</span><span>خدمات رقمية متكاملة</span><span>KIRA</span><span>خدمات رقمية متكاملة</span><span>KIRA</span><span>خدمات رقمية متكاملة</span>
+  <span>KIRA</span><span>خدمات رقمية متكاملة</span><span>KIRA</span><span>خدمات رقمية متكاملة</span><span>KIRA</span><span>خدمات رقمية متكاملة</span>
+</div></div>
+
+<!-- ============ MY APPS ============ -->
+<section id="apps">
+  <div class="title rv"><b>01</b><h2>تطبيقاتي</h2></div>
+  <div class="grid">
+    <a class="tilt rv" href="https://kira92i.github.io/Remember_Allah-/" target="_blank" rel="noopener"><div class="card app">
+      <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/1.png" alt="Remember Allah" /><div><h3>Remember Allah</h3><small>افتح التطبيق ‹</small></div></div></a>
+    <a class="tilt rv" href="https://kira92i.github.io/S.Clipboard/" target="_blank" rel="noopener"><div class="card app blue">
+      <img src="https://raw.githubusercontent.com/Kira92i/Personal-information/refs/heads/main/2.png" alt="S.Clipboard" /><div><h3>S.Clipboard</h3><small>افتح التطبيق ‹</small></div></div></a>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="title rv"><b>02</b><h2>تواصل معي</h2></div>
+  <div class="grid">
+    <a class="tilt rv" href="mailto:billelabdiche92@gmail.com"><div class="card">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><rect x="4" y="9" width="32" height="22" rx="3"/><path d="M5 11l15 11 15-11"/></svg>
+      <small>البريد الإلكتروني</small><span class="val">billel*******@gmail.com</span></div></a>
+    <a class="tilt rv" href="tel:+213552790181"><div class="card blue">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="M9 5h7l3 8-4 3c2 4 5 7 9 9l3-4 8 3v7c0 2-2 4-4 4C18 35 5 22 5 9c0-2 2-4 4-4z"/></svg>
+      <small>الهاتف</small><span class="val">0552 79 01 81</span></div></a>
+  </div>
+</section>
+
+<!-- ============ SOCIAL ============ -->
+<section id="social">
+  <div class="title rv"><b>03</b><h2>تابعني</h2></div>
+  <div class="soc rv">
+    <a href="https://www.facebook.com/kira92i" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14.500 21v-8h2.700l.5-3.500h-3.200V7.600c0-1 .4-1.700 1.800-1.700h1.500V3c-.5-.1-1.500-.2-2.500-.2-2.600 0-4.300 1.600-4.300 4.400v2.300H8v3.500h2.500v8z"/></svg></a>
+    <a href="https://www.instagram.com/kira92ii" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.300" cy="6.700" r=".6"/></svg></a>
+    <a href="https://www.tiktok.com/@kira92iii?_t=8pfZ1lLHc7J&_r=1" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.500a3.500 3.500 0 1 1-3.500-3.500M14 3c.3 2.700 2 4.500 5 4.800"/></svg></a>
+    <a href="https://t.me/kira_desu92i" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l5.500 2L10 19l3-3.500L17.500 19z"/><path d="M8.500 13L21 4"/></svg></a>
+    <a href="https://discord.gg/SwDpfzqU4K" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24"><path d="M7 6.500c3-1.300 7-1.300 10 0 1.500 2.500 2.200 5.500 2 9-1.200 1-2.500 1.600-4 2l-1-1.700M7 6.500C5.500 9 4.800 12 5 15.500c1.200 1 2.500 1.600 4 2l1-1.700M8.500 15c2 .8 5 .8 7 0"/><circle cx="9.300" cy="11.500" r="1"/><circle cx="14.700" cy="11.500" r="1"/></svg></a>
+    <a href="https://wa.me/qr/SWRUOYDR2XA6J1" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.300-4.200A8 8 0 1 1 8.200 18.800z"/><path d="M9 8.500c0 3.500 3 6.500 6.500 6.500l1-1.500-2-1-1 .8c-1-.4-2-1.400-2.400-2.400l.8-1-1-2z"/></svg></a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>© 2024 صُنع بـ ♥ بواسطة <span class="k">Kira</span></footer>
+
+<!-- ============ SCRIPT ============ -->
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+
+  /* --- ظهور تدريجي عند التمرير --- */
+  var els = document.querySelectorAll('.rv');
+  if(reduce || !('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); }
+  else{
+    var io = new IntersectionObserver(function(list){
+      list.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
+    },{threshold:.12});
+    els.forEach(function(e,i){ e.style.transitionDelay=(i%3)*90+'ms'; io.observe(e); });
+  }
+  if(reduce) return;
+
+  /* --- ميلان ثلاثي الأبعاد للبطاقات --- */
+  if(matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.tilt').forEach(function(t){
+      var c = t.querySelector('.card'); if(!c) return;
+      t.addEventListener('pointermove',function(e){
+        var r=t.getBoundingClientRect();
+        c.style.setProperty('--ry',(((e.clientX-r.left)/r.width-.5)*16)+'deg');
+        c.style.setProperty('--rx',(-((e.clientY-r.top)/r.height-.5)*16)+'deg');
+      });
+      t.addEventListener('pointerleave',function(){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg');});
+    });
+  }
+
+  /* --- جسيمات متحركة --- */
+  var cv=document.getElementById('fx'), cx=cv.getContext('2d'), W,H,P=[];
+  var cols=['#ffe600','#f4f4f6','#2f8bff'];
+  function size(){ W=cv.width=innerWidth; H=cv.height=innerHeight; }
+  size(); addEventListener('resize',size);
+  for(var i=0;i<(innerWidth<600?28:55);i++) P.push({x:Math.random()*W,y:Math.random()*H,s:1+Math.random()*3,v:.2+Math.random()*.7,c:cols[i%3],d:Math.random()*6});
+  (function loop(){
+    cx.clearRect(0,0,W,H);
+    P.forEach(function(p){
+      p.y-=p.v; p.d+=.02; p.x+=Math.sin(p.d)*.4;
+      if(p.y<-10){p.y=H+10;p.x=Math.random()*W;}
+      cx.fillStyle=p.c; cx.globalAlpha=.7;
+      cx.save(); cx.translate(p.x,p.y); cx.rotate(Math.PI/4); cx.fillRect(-p.s,-p.s,p.s*2,p.s*2); cx.restore();
+    });
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
